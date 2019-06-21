@@ -6,6 +6,7 @@
 
 extern void predict_classifier(char *datacfg, char *cfgfile, char *weightfile, char *filename, int top);
 extern void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filename, float thresh, float hier_thresh, char *outfile, int fullscreen);
+extern void test_inference(char *cfgfile, char *weightfile, int layer_index);
 extern void run_yolo(int argc, char **argv);
 extern void run_detector(int argc, char **argv);
 extern void run_coco(int argc, char **argv);
@@ -495,6 +496,8 @@ int main(int argc, char **argv)
         mkimg(argv[2], argv[3], atoi(argv[4]), atoi(argv[5]), atoi(argv[6]), argv[7]);
     } else if (0 == strcmp(argv[1], "imtest")){
         test_resize(argv[2]);
+    } else if (0 == strcmp(argv[1], "inference")) {
+        test_inference(argv[2], argv[3], atoi(argv[4]));
     } else {
         fprintf(stderr, "Not an option: %s\n", argv[1]);
     }

@@ -4,7 +4,7 @@ float * get_dummy_input(int length){
     float * ret = (float*)malloc(sizeof(float) * length);
     int i;
     for (i=0;i<length;i++){
-        ret[i] = (float)((length % 10) - 5) * 0.0001;
+        ret[i] = (float)((i % 10) - 5) * 0.00001;
     }
     return ret;
 }
